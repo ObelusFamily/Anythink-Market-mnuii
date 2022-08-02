@@ -10,4 +10,31 @@ When implementing a new feature or fixing a bug, please create a new pull reques
 
 ## First setup
 
-**[TODO 05/01/2018 @vanessa-cooper]:** _It's been a while since anyone ran a fresh copy of this repo. I think it's worth documenting the steps needed to install and run the repo on a new machine?_
+### Docker setup
+
+So first thing’s first - [install Docker](https://docs.docker.com/get-docker/).
+
+Test your docker installation by running the following commands on your terminal:
+
+```
+docker -v
+docker-composer -v
+```
+
+### Run the application
+
+Run docker-compose
+
+```
+docker-compose up
+```
+
+### Run the DB migrations
+
+```
+docker exec -ti  -w /usr/src/backend anythink-backend bin/rails db:migrate
+```
+
+### Test the installation
+
+Open http://localhost:3000/api/ping in your broswer to test the backend and http://localhost:3001 to test the frontend. If everything is working properly, you’ll be able to create a new user on http://localhost:3001/register
